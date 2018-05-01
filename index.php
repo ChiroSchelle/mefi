@@ -470,10 +470,16 @@
                                       <td colspan="3"><i>* Gebaseerd op aanbeveling Kind&amp;Gezin 09.12.2009 – Aanpak van koorts / Toedienen van geneesmiddelen in de kinderopvang</i></td>
                                     </tr>
                                     <tr><td colspan="3"><hr></td></tr>
-									<tr>
-                                      <td>Wij geven toestemming aan de leiding om ons kind te laten fotograferen en te publiceren.<span class="required">*</span></td>
+									                  <tr>
+                                      <td>Wij geven toestemming aan de leiding om ons kind te laten fotograferen en te publiceren op onze website.<span class="required">*</span></td>
                                       <td><input type="radio" group="ToestemmingFoto" name="ToestemmingFoto" value="Ja" required></td>
                                       <td><input type="radio" group="ToestemmingFoto" name="ToestemmingFoto" value="Nee"></td>
+                                    </tr>
+                                    </tr>
+									                  <tr>
+                                      <td>Wij geven toestemming aan de leiding om ons kind te laten fotograferen en te publiceren in het stickerboek van Chiro Schelle in samenwerking met AD Delhaize Schelle.<span class="required">*</span></td>
+                                      <td><input type="radio" group="ToestemmingFotoS" name="ToestemmingFotoS" value="Ja" required></td>
+                                      <td><input type="radio" group="ToestemmingFotoS" name="ToestemmingFotoS" value="Nee"></td>
                                     </tr>
                                     <tr><td colspan="3"><hr></td></tr>
                                     <tr><td colspan="3"><h6>Andere inlichtingen</h6></td></tr>

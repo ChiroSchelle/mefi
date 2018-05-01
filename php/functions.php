@@ -268,8 +268,8 @@
         $MedicatieLijst = $temp;
         //Einde MedicatieLijst
 		
-		$sql = "INSERT INTO `lid`(`Lactose`, `LactoseX`, `ToestemmingFoto`,`Afdeling`, `Naam`, `Voornaam`, `Geboortedatum`, `Straat`, `Nummer`, `Postcode`, `Woonplaats`, `Telefoon1`, `Telefoon2`, `NaamVoornaam1`, `NaamVoornaam2`, `Verwantschap1`, `Verwantschap2`, `NaamHuisarts`, `TelefoonArts`, `Bloedgroep`, `ResusFactor`, `ZiekteLijst`, `GevoeligStoffenVoeding`, `Ingrepen`, `VaccinatieTetanus`, `SerumTetanus`, `VaccinatieHersenvliesontsteking`, `AllergieMedicatie`, `Vegetarisch`, `Incontinent`, `DeelnemenSport`, `ToestemmingMedicatie`, `ToestemmingIngrepen`, `AndereInlichtingen`, `NaamInvuller`, `Datum`, `Roken`, `ToestemmingRoken`, `MedicatieLijst`)
-        VALUES ('$Lactose', '$LactoseX', '$ToestemmingFoto', '$Afdeling', '$Naam', '$Voornaam', '$Geboortedatum', '$Straat', '$Nummer', '$Postcode', '$Woonplaats', '$Telefoon1', '$Telefoon2', '$NaamVoornaam1', '$NaamVoornaam2', '$Verwantschap1', '$Verwantschap2', '$NaamHuisarts', '$TelefoonArts', '$Bloedgroep', '$ResusFactor', '$ZiektenLijst', '$GevoeligStoffenVoeding', '$Ingrepen', '$VaccinatieTetanus', '$SerumTetanus', '$VaccinatieHersenvliesontsteking', '$AllergieMedicatie', '$Vegetarisch', '$Incontinent', '$DeelnemenSport', '$ToestemmingMedicatie', '$ToestemmingIngrepen', '$AndereInlichtingen', '$NaamInvuller', '$Datum', '$Roken', '$ToestemmingRoken', '$MedicatieLijst')";
+		$sql = "INSERT INTO `lid`(`Lactose`, `LactoseX`, `ToestemmingFotoS`, `ToestemmingFoto`,`Afdeling`, `Naam`, `Voornaam`, `Geboortedatum`, `Straat`, `Nummer`, `Postcode`, `Woonplaats`, `Telefoon1`, `Telefoon2`, `NaamVoornaam1`, `NaamVoornaam2`, `Verwantschap1`, `Verwantschap2`, `NaamHuisarts`, `TelefoonArts`, `Bloedgroep`, `ResusFactor`, `ZiekteLijst`, `GevoeligStoffenVoeding`, `Ingrepen`, `VaccinatieTetanus`, `SerumTetanus`, `VaccinatieHersenvliesontsteking`, `AllergieMedicatie`, `Vegetarisch`, `Incontinent`, `DeelnemenSport`, `ToestemmingMedicatie`, `ToestemmingIngrepen`, `AndereInlichtingen`, `NaamInvuller`, `Datum`, `Roken`, `ToestemmingRoken`, `MedicatieLijst`)
+        VALUES ('$Lactose', '$LactoseX', '$ToestemmingFotoS', '$ToestemmingFoto', '$Afdeling', '$Naam', '$Voornaam', '$Geboortedatum', '$Straat', '$Nummer', '$Postcode', '$Woonplaats', '$Telefoon1', '$Telefoon2', '$NaamVoornaam1', '$NaamVoornaam2', '$Verwantschap1', '$Verwantschap2', '$NaamHuisarts', '$TelefoonArts', '$Bloedgroep', '$ResusFactor', '$ZiektenLijst', '$GevoeligStoffenVoeding', '$Ingrepen', '$VaccinatieTetanus', '$SerumTetanus', '$VaccinatieHersenvliesontsteking', '$AllergieMedicatie', '$Vegetarisch', '$Incontinent', '$DeelnemenSport', '$ToestemmingMedicatie', '$ToestemmingIngrepen', '$AndereInlichtingen', '$NaamInvuller', '$Datum', '$Roken', '$ToestemmingRoken', '$MedicatieLijst')";
 		
 		$link = LinkDB();
 		
@@ -393,6 +393,10 @@
 							<tr>
 								<td>Toestemming fotos</td>
 								<td>'.$row["ToestemmingFoto"].'</td>
+							</tr>
+							<tr>
+								<td>Toestemming foto in stickerboek</td>
+								<td>'.$row["ToestemmingFotoS"].'</td>
 							</tr>
 							<tr>
 								<td>Medicatielijst</td>
