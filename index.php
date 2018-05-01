@@ -76,12 +76,16 @@
             document.getElementById("ZLarea").value = "";
         }
       }
+
+      function informatie() {
+        alert("We kampen opnieuw met enkele fouten waardoor de fiche niet ingevuld kan worden! Gelieve dit ook niet te proberen. Chiro Schelle is zich bewust van deze fouten en hoopt deze snel op te lossen. Bedankt voor het geduld.")
+      }
     </script>
       
       <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 
-	<body class="no-trans">
+	<body class="no-trans" onload="informatie()">
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
