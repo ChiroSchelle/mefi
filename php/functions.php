@@ -27,7 +27,8 @@
 
 	function LinkDB()
 	{
-		$link = mysqli_connect("SERVER_IP","DB_USER","PASSWORD","DB_NAME");
+		include 'password.php';
+		createLink();
 
 		// Check connection
 		if (mysqli_connect_errno())
