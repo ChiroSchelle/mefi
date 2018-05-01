@@ -1,22 +1,22 @@
 <?php
 	if(isset($_POST["function"]))
-	{				
+	{
 		if($_POST["function"] == "Login")
 		{
 			Login($_POST["user"], $_POST["pass"]);
 		}
-		
+
 		if($_POST["function"] == "Vegie")
 		{
 			Vegie();
 		}
-		
+
 		if($_POST["function"] == "NieuweFiche")
-		{	
+		{
 			NieuweFiche($_POST["Lactose"],$_POST["LactoseX"],$_POST["ToestemmingFotoS"],$_POST["ToestemmingFoto"],$_POST["Afdeling"],$_POST["Naam"],$_POST["Voornaam"],$_POST["Geboortedatum"],$_POST["Straat"],$_POST["Nummer"],$_POST["Postcode"],$_POST["Woonplaats"],$_POST["Telefoon1"],$_POST["Telefoon2"],$_POST["NaamVoornaam1"],$_POST["NaamVoornaam2"],$_POST["Verwantschap1"],$_POST["Verwantschap2"],$_POST["NaamHuisarts"],$_POST["TelefoonArts"],$_POST["Bloedgroep"],$_POST["ResusFactor"],$_POST["ZiektenLijst"],$_POST["GevoeligStoffenVoeding"],$_POST["Ingrepen"],$_POST["VaccinatieTetanus"],$_POST["SerumTetanus"],$_POST["VaccinatieHersenvliesontsteking"],$_POST["AllergieMedicatie"],$_POST["Vegetarisch"],$_POST["Incontinent"],$_POST["DeelnemenSport"],$_POST["ToestemmingMedicatie"],$_POST["ToestemmingIngrepen"],$_POST["AndereInlichtingen"],$_POST["NaamInvuller"],$_POST["Roken"],$_POST["ToestemmingRoken"],$_POST["MedicatieLijst"]);
 		}
 	}
-	
+
 	if(isset($_GET["function"]))
 	{
 		if($_GET["function"] == "Logout")
@@ -27,7 +27,7 @@
 
 	function LinkDB()
 	{
-	    $link = mysqli_connect("127.0.0.1","chiroschelle","mKVcJNuA7quVsG6r","chirosch_medifi");
+		$link = mysqli_connect("SERVER_IP","DB_USER","PASSWORD","DB_NAME");
 
 		// Check connection
 		if (mysqli_connect_errno())
@@ -40,11 +40,11 @@
 			return $link;
 		}
 	}
-	
+
 	function Login($user, $password)
 	{
 		$link = LinkDB();
-		
+
 		if($link != false)
 		{
 			$sql="SELECT * FROM user";
@@ -62,7 +62,7 @@
 					exit();
 				}
 			}
-			
+
 			$_SESSION["login"] = 0;
 			$_SESSION["meldingLogin"] = "Login Fout!";
 			$url = "/mefi/login/";
@@ -72,28 +72,28 @@
 		{
 			echo "Error connecting to database";
 			$_SESSION["login"] = 0;
-		}	
+		}
 	}
-	
+
 	function Logout()
 	{
 		session_destroy();
-		
+
 		$url = "/mefi/login/";
 		echo "<meta http-equiv='refresh' content='0;URL=$url' />";
 	}
 
 	function Zoeken($zoek)
 	{
-	    $link = LinkDB();
+		$link = LinkDB();
 		$html = null;
-		
+
 		if($link != false)
 		{
-		    if ($zoek == null) {
-		        $html .= "<p style='color: red; margin-bottom: 20px; font-size: 150%; text-align: center;'>Voer een zoekopdracht in!</p>";
-		    }
-		    else 
+			if ($zoek == null) {
+				$html .= "<p style='color: red; margin-bottom: 20px; font-size: 150%; text-align: center;'>Voer een zoekopdracht in!</p>";
+			}
+			else
 			{
 				if($zoek == "*")
 				{
@@ -103,25 +103,25 @@
 				{
 					$sql="SELECT DISTINCT Naam, Voornaam, Afdeling, IDlid FROM lid WHERE Voornaam LIKE '%$zoek%'OR Naam LIKE '%$zoek%' OR Afdeling LIKE '%$zoek%' ORDER BY Naam ASC";
 				}
-				
+
 				$result=mysqli_query($link,$sql);
 
 				// Associative array
 				$html = "<ul class='nav'><hr>";
-				
+
 				while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 				{
 					$html .= "<li><a href='?function=Fiche&id=".$row["IDlid"]."'> " . $row["Naam"] . " - " . $row["Voornaam"] . " - " . $row["Afdeling"] . "</a></li><hr>";
 				}
-				
+
 				$html .= "</ul>";
-		    }
-		}	
-		
+			}
+		}
+
 		return $html;
 	}
 
-    function NieuweFiche($Lactose ,$LactoseX , $ToestemmingFotoS ,$ToestemmingFoto, $Afdeling ,$Naam ,$Voornaam ,$Geboortedatum ,$Straat ,$Nummer ,$Postcode ,$Woonplaats ,$Telefoon1 ,$Telefoon2 ,$NaamVoornaam1 ,$NaamVoornaam2 ,$Verwantschap1 ,$Verwantschap2 ,$NaamHuisarts ,$TelefoonArts ,$Bloedgroep ,$ResusFactor ,$ZiektenLijst ,$GevoeligStoffenVoeding ,$Ingrepen ,$VaccinatieTetanus ,$SerumTetanus ,$VaccinatieHersenvliesontsteking ,$AllergieMedicatie ,$Vegetarisch ,$Incontinent ,$DeelnemenSport ,$ToestemmingMedicatie ,$ToestemmingIngrepen ,$AndereInlichtingen ,$NaamInvuller ,$Roken ,$ToestemmingRoken, $MedicatieLijst)
+	function NieuweFiche($Lactose ,$LactoseX , $ToestemmingFotoS ,$ToestemmingFoto, $Afdeling ,$Naam ,$Voornaam ,$Geboortedatum ,$Straat ,$Nummer ,$Postcode ,$Woonplaats ,$Telefoon1 ,$Telefoon2 ,$NaamVoornaam1 ,$NaamVoornaam2 ,$Verwantschap1 ,$Verwantschap2 ,$NaamHuisarts ,$TelefoonArts ,$Bloedgroep ,$ResusFactor ,$ZiektenLijst ,$GevoeligStoffenVoeding ,$Ingrepen ,$VaccinatieTetanus ,$SerumTetanus ,$VaccinatieHersenvliesontsteking ,$AllergieMedicatie ,$Vegetarisch ,$Incontinent ,$DeelnemenSport ,$ToestemmingMedicatie ,$ToestemmingIngrepen ,$AndereInlichtingen ,$NaamInvuller ,$Roken ,$ToestemmingRoken, $MedicatieLijst)
 	{
 		$Afdeling = ucwords((strtolower($Afdeling)));
 		$Naam = ucwords((strtolower($Naam)));
@@ -133,33 +133,33 @@
 		$Verwantschap1 = ucwords((strtolower($Verwantschap1)));
 		$Verwantschap2 = ucwords((strtolower($Verwantschap2)));
 		$NaamHuisarts = ucwords((strtolower($NaamHuisarts)));
-        $NaamInvuller = ucwords((strtolower($NaamInvuller)));
-        
-        date_default_timezone_set("Europe/Brussels");    
-        $Datum = date("d/m/Y H:i");
-        
-        $Geboortedatum = date("d/m/Y", strtotime($Geboortedatum));
-		
+		$NaamInvuller = ucwords((strtolower($NaamInvuller)));
+
+		date_default_timezone_set("Europe/Brussels");
+		$Datum = date("d/m/Y H:i");
+
+		$Geboortedatum = date("d/m/Y", strtotime($Geboortedatum));
+
 		//ZiektenLijst ja, text
 		$temp = null;
 		$teller = 0;
-		
-		foreach ($ZiektenLijst as $value) 
-		{           	
+
+		foreach ($ZiektenLijst as $value)
+		{
 			if($value == "")
 			{
 				$temp .= "<br> Andere ";
 			}
-			
+
 			$temp .= $value . ", ";
 		}
 		$ZiektenLijst = $temp;
 		//Einde ZiektenLijst
-		
+
 		//GevoeligStoffenVoeding ja, text
 		$temp = null;
 		$teller = 0;
-		foreach ($GevoeligStoffenVoeding as $value) 
+		foreach ($GevoeligStoffenVoeding as $value)
 		{
 			if($teller == 0)
 			{
@@ -169,15 +169,15 @@
 			else
 			{
 				$temp .= $value;
-			}			
+			}
 		}
 		$GevoeligStoffenVoeding = $temp;
 		//Einde GevoeligStoffenVoeding
-		
+
 		//Ingrepen ja, text
 		$temp = null;
 		$teller = 0;
-		foreach ($Ingrepen as $value) 
+		foreach ($Ingrepen as $value)
 		{
 			if($teller == 0)
 			{
@@ -187,15 +187,15 @@
 			else
 			{
 				$temp .= $value;
-			}			
+			}
 		}
 		$Ingrepen = $temp;
 		//Einde Ingrepen
-		
+
 		//VaccinatieTetanus ja, text
 		$temp = null;
 		$teller = 0;
-		foreach ($VaccinatieTetanus as $value) 
+		foreach ($VaccinatieTetanus as $value)
 		{
 			if($teller == 0)
 			{
@@ -205,15 +205,15 @@
 			else
 			{
 				$temp .= $value;
-			}			
+			}
 		}
 		$VaccinatieTetanus = $temp;
 		//Einde VaccinatieTetanus
-		
+
 		//SerumTetanus ja, text
 		$temp = null;
 		$teller = 0;
-		foreach ($SerumTetanus as $value) 
+		foreach ($SerumTetanus as $value)
 		{
 			if($teller == 0)
 			{
@@ -223,7 +223,7 @@
 			else
 			{
 				$temp .= $value;
-			}			
+			}
 		}
 		$SerumTetanus = $temp;
 		//Einde SerumTetanus
@@ -231,7 +231,7 @@
 		//AllergieMedicatie ja, text
 		$temp = null;
 		$teller = 0;
-		foreach ($AllergieMedicatie as $value) 
+		foreach ($AllergieMedicatie as $value)
 		{
 			if($teller == 0)
 			{
@@ -241,20 +241,20 @@
 			else
 			{
 				$temp .= $value;
-			}			
+			}
 		}
 		$AllergieMedicatie = $temp;
 		//Einde AllergieMedicatie
 
 		$AndereInlichtingen = ucfirst(strtolower($AndereInlichtingen));
 		$NaamInvuller = ucfirst(strtolower($NaamInvuller));
-        
-        //MedicatieLijst Medicatie, Tijdstip, Reden
-        $temp = null;
+
+		//MedicatieLijst Medicatie, Tijdstip, Reden
+		$temp = null;
 		$teller = 0;
-		foreach ($MedicatieLijst as $value) 
-        {
-            if($teller == 2)
+		foreach ($MedicatieLijst as $value)
+		{
+			if($teller == 2)
 			{
 				$temp .= $value . "<br>";
 				$teller = 0;
@@ -262,17 +262,17 @@
 			else
 			{
 				$temp .= $value . ", ";
-                $teller++;
-			}	
-        }
-        $MedicatieLijst = $temp;
-        //Einde MedicatieLijst
-		
+				$teller++;
+			}
+		}
+		$MedicatieLijst = $temp;
+		//Einde MedicatieLijst
+
 		$sql = "INSERT INTO `lid`(`Lactose`, `LactoseX`, `ToestemmingFotoS`, `ToestemmingFoto`,`Afdeling`, `Naam`, `Voornaam`, `Geboortedatum`, `Straat`, `Nummer`, `Postcode`, `Woonplaats`, `Telefoon1`, `Telefoon2`, `NaamVoornaam1`, `NaamVoornaam2`, `Verwantschap1`, `Verwantschap2`, `NaamHuisarts`, `TelefoonArts`, `Bloedgroep`, `ResusFactor`, `ZiekteLijst`, `GevoeligStoffenVoeding`, `Ingrepen`, `VaccinatieTetanus`, `SerumTetanus`, `VaccinatieHersenvliesontsteking`, `AllergieMedicatie`, `Vegetarisch`, `Incontinent`, `DeelnemenSport`, `ToestemmingMedicatie`, `ToestemmingIngrepen`, `AndereInlichtingen`, `NaamInvuller`, `Datum`, `Roken`, `ToestemmingRoken`, `MedicatieLijst`)
-        VALUES ('$Lactose', '$LactoseX', '$ToestemmingFotoS', '$ToestemmingFoto', '$Afdeling', '$Naam', '$Voornaam', '$Geboortedatum', '$Straat', '$Nummer', '$Postcode', '$Woonplaats', '$Telefoon1', '$Telefoon2', '$NaamVoornaam1', '$NaamVoornaam2', '$Verwantschap1', '$Verwantschap2', '$NaamHuisarts', '$TelefoonArts', '$Bloedgroep', '$ResusFactor', '$ZiektenLijst', '$GevoeligStoffenVoeding', '$Ingrepen', '$VaccinatieTetanus', '$SerumTetanus', '$VaccinatieHersenvliesontsteking', '$AllergieMedicatie', '$Vegetarisch', '$Incontinent', '$DeelnemenSport', '$ToestemmingMedicatie', '$ToestemmingIngrepen', '$AndereInlichtingen', '$NaamInvuller', '$Datum', '$Roken', '$ToestemmingRoken', '$MedicatieLijst')";
-		
+		VALUES ('$Lactose', '$LactoseX', '$ToestemmingFotoS', '$ToestemmingFoto', '$Afdeling', '$Naam', '$Voornaam', '$Geboortedatum', '$Straat', '$Nummer', '$Postcode', '$Woonplaats', '$Telefoon1', '$Telefoon2', '$NaamVoornaam1', '$NaamVoornaam2', '$Verwantschap1', '$Verwantschap2', '$NaamHuisarts', '$TelefoonArts', '$Bloedgroep', '$ResusFactor', '$ZiektenLijst', '$GevoeligStoffenVoeding', '$Ingrepen', '$VaccinatieTetanus', '$SerumTetanus', '$VaccinatieHersenvliesontsteking', '$AllergieMedicatie', '$Vegetarisch', '$Incontinent', '$DeelnemenSport', '$ToestemmingMedicatie', '$ToestemmingIngrepen', '$AndereInlichtingen', '$NaamInvuller', '$Datum', '$Roken', '$ToestemmingRoken', '$MedicatieLijst')";
+
 		$link = LinkDB();
-		
+
 		if($link != false)
 		{
 			mysqli_query($link,$sql);
@@ -286,29 +286,29 @@
 		$url = "../mefi/succes/";
 		echo "<meta http-equiv='refresh' content='0;URL=$url' />";
 	}
-	
+
 	function IndividueleFiche($id)
 	{
 		$link = LinkDB();
 		$html = null;
-		
+
 		if($link != false)
 		{
 			$sql="SELECT * FROM lid WHERE IDlid = $id";
 			$result=mysqli_query($link,$sql);
-			
+
 			// Associative array
 			while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 			{
 				$_SESSION["afdeling"] = $row["Afdeling"];
-				
+
 				$html = "<table>";
-				
+
 				$html .= '<table class="table table-bordered">
-				            <tr>
-				                <td><a href="../admin/?function=Volgende"><button class="btn btn-warning btn-block" style="color: black;" >Vorige</button></a></td>
-				                <td><a href="../admin/?function=Vorige"><button class="btn btn-warning btn-block" style="color: black;" >Volgende</button></a></td>
-				            <tr>
+							<tr>
+								<td><a href="../admin/?function=Volgende"><button class="btn btn-warning btn-block" style="color: black;" >Vorige</button></a></td>
+								<td><a href="../admin/?function=Vorige"><button class="btn btn-warning btn-block" style="color: black;" >Volgende</button></a></td>
+							<tr>
 							<thead>
 								<tr>
 									<th class="text-center" colspan="2"><h3 style="color:#f4d442;">'.$row["Naam"]." ".$row["Voornaam"]." - ".$row["Afdeling"].'</h3></th>
@@ -316,7 +316,7 @@
 							</thead>
 							<tr>
 								<td width="30%">Geboortedatum</td>
-                                <td width="70%"><input name="geboortedatum" value="'.$row["Geboortedatum"].'"></td>
+								<td width="70%"><input name="geboortedatum" value="'.$row["Geboortedatum"].'"></td>
 							</tr>
 							<tr>
 								<td>Adres</td>
@@ -430,70 +430,70 @@
 								<td>Toestemming om op kamp te roken?</td>
 								<td>'.$row["ToestemmingRoken"].'</td>
 							</tr>
-                            <thead>
+							<thead>
 								<tr>
 									<th class="text-center" colspan="2"><h3 style="color:#f4d442;">'."Medicatielijst".'</h3></th>
 								</tr>
-                                <tr>
-                                    <td>Medicatie, Tijdstip, Reden</td>
-								    <td>'.$row["MedicatieLijst"].'</td>
-                                </tr>
+								<tr>
+									<td>Medicatie, Tijdstip, Reden</td>
+									<td>'.$row["MedicatieLijst"].'</td>
+								</tr>
 							</thead>
 						</table>';
 			}
-		}	
-		
-		return $html; 
+		}
+
+		return $html;
 	}
-	
+
 	function Vegie()
 	{
 		$link = LinkDB();
 		$html = null;
-		
+
 		if($link != false)
 		{
 			$sql="SELECT DISTINCT Naam, Voornaam, Afdeling, IDlid FROM lid WHERE Vegetarisch = 'Ja' ORDER BY Naam ASC";
-			
-			
+
+
 			$result=mysqli_query($link,$sql);
 
 			// Associative array
 			$html = "<ul class='nav'><hr>";
-			
+
 			while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 			{
 				$html .= "<li><a href='?function=Fiche&id=".$row["IDlid"]."'> " . $row["Naam"] . " - " . $row["Voornaam"] . " - " . $row["Afdeling"] . "</a></li><hr>";
 			}
-			
+
 			$html .= "</ul>";
-		}	
-		
+		}
+
 		return $html;
 	}
-	
+
 	function Allergie()
 	{
 		$link = LinkDB();
 		$html = null;
-		
+
 		if($link != false)
 		{
-			$sql="SELECT DISTINCT Naam, Voornaam, Afdeling, IDlid FROM lid WHERE GevoeligStoffenVoeding like '%Ja%' ORDER BY Naam ASC";	
-			
+			$sql="SELECT DISTINCT Naam, Voornaam, Afdeling, IDlid FROM lid WHERE GevoeligStoffenVoeding like '%Ja%' ORDER BY Naam ASC";
+
 			$result=mysqli_query($link,$sql);
 
 			// Associative array
 			$html = "<ul class='nav'><hr>";
-			
+
 			while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 			{
 				$html .= "<li><a href='?function=Fiche&id=".$row["IDlid"]."'> " . $row["Naam"] . " - " . $row["Voornaam"] . " - " . $row["Afdeling"] . "</a></li><hr>";
 			}
-			
+
 			$html .= "</ul>";
-		}	
-		
+		}
+
 		return $html;
 	}
 ?>
