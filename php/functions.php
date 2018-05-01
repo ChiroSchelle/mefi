@@ -121,7 +121,7 @@
 		return $html;
 	}
 
-    function NieuweFiche($Lactose ,$LactoseX ,$ToestemmingFoto, $Afdeling ,$Naam ,$Voornaam ,$Geboortedatum ,$Straat ,$Nummer ,$Postcode ,$Woonplaats ,$Telefoon1 ,$Telefoon2 ,$NaamVoornaam1 ,$NaamVoornaam2 ,$Verwantschap1 ,$Verwantschap2 ,$NaamHuisarts ,$TelefoonArts ,$Bloedgroep ,$ResusFactor ,$ZiektenLijst ,$GevoeligStoffenVoeding ,$Ingrepen ,$VaccinatieTetanus ,$SerumTetanus ,$VaccinatieHersenvliesontsteking ,$AllergieMedicatie ,$Vegetarisch ,$Incontinent ,$DeelnemenSport ,$ToestemmingMedicatie ,$ToestemmingIngrepen ,$AndereInlichtingen ,$NaamInvuller ,$Roken ,$ToestemmingRoken, $MedicatieLijst)
+    function NieuweFiche($Lactose ,$LactoseX , $ToestemmingFotoS ,$ToestemmingFoto, $Afdeling ,$Naam ,$Voornaam ,$Geboortedatum ,$Straat ,$Nummer ,$Postcode ,$Woonplaats ,$Telefoon1 ,$Telefoon2 ,$NaamVoornaam1 ,$NaamVoornaam2 ,$Verwantschap1 ,$Verwantschap2 ,$NaamHuisarts ,$TelefoonArts ,$Bloedgroep ,$ResusFactor ,$ZiektenLijst ,$GevoeligStoffenVoeding ,$Ingrepen ,$VaccinatieTetanus ,$SerumTetanus ,$VaccinatieHersenvliesontsteking ,$AllergieMedicatie ,$Vegetarisch ,$Incontinent ,$DeelnemenSport ,$ToestemmingMedicatie ,$ToestemmingIngrepen ,$AndereInlichtingen ,$NaamInvuller ,$Roken ,$ToestemmingRoken, $MedicatieLijst)
 	{
 		$Afdeling = ucwords((strtolower($Afdeling)));
 		$Naam = ucwords((strtolower($Naam)));
