@@ -28,7 +28,6 @@
 	function LinkDB()
 	{
 		include 'password.php';
-		createLink();
 
 		// Check connection
 		if (mysqli_connect_errno())
