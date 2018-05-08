@@ -13,7 +13,7 @@
 
 		if($_POST["function"] == "NieuweFiche")
 		{
-			if ($_POST["LactoseX"] == null){
+			if (!isset($_POST["LactoseX"]){
 				$LactoseX = "/";
 			}
 			else {
