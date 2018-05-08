@@ -327,22 +327,22 @@
                                     
                                     <tr>
                                       <td>Is uw kind lactose intolerant? <span class="required">*</span></td>
-                                      <td><input type="radio" group="Lactose" name="Lactose" value="Ja" onchange="LactoseZichtbaar()" required></td>
-                                      <td><input type="radio" group="Lactose" name="Lactose" value="Nee" onchange="HideOnLoad()" checked="true"></td>
+                                      <td><input id="lactose1" type="radio" group="Lactose" name="Lactose" value="Ja" onchange="checkLactose()" required></td>
+                                      <td><input id="lactose2" type="radio" group="Lactose" name="Lactose" value="Nee" onchange="checkLactose()" checked="true"></td>
                                     </tr>
-									<tr id="trlac1" style="display:none;">
-									  <td>Enkel melkproducten in eten verwerkt. <span class="required">*</span></td>
-									  <td><input id="lactose1" type="radio" group="LactoseX" name="LactoseX" value="Verwerkt"></td>
-									</tr>
-									<tr id="trlac2" style="display:none;">
-                                      <td>Totaal geen melkproducten. <span class="required">*</span></td>
-                                      <td><input id="lactose2" type="radio" group="LactoseX" name="LactoseX" value="Geen"></td></td>
+									                  <tr>
+									                    <td>Enkel melkproducten in eten verwerkt. <span class="required">* (Indien van toepassing)</span></td>
+									                    <td><input id="lactose3" type="radio" group="LactoseX" name="LactoseX" value="Verwerkt" disabled></td>
+									                  </tr>
+									                  <tr>
+                                      <td>Totaal geen melkproducten. <span class="required">* (Indien van toepassing)</span></td>
+                                      <td><input id="lactose4" type="radio" group="LactoseX" name="LactoseX" value="Geen" disabled></td></td>
                                       <td></td>
                                     </tr>
 									
-									<tr><td colspan="3"><hr></td></tr>
+									                  <tr><td colspan="3"><hr></td></tr>
 									
-									<tr>
+									                  <tr>
                                       <td>Is uw kind bijzonder gevoelig voor bepaalde stoffen of voedingsmiddelen? Zo ja, welke? <span class="required">*</span></td>
                                       <td><input type="radio" group="GevoeligStoffenVoeding" name="GevoeligStoffenVoeding[]" value="Ja" required></td>
                                       <td><input type="radio" group="GevoeligStoffenVoeding" name="GevoeligStoffenVoeding[]" value="Nee" checked="true"></td>
@@ -541,18 +541,23 @@
 
 	</body>
 	<script type="text/javascript">
-        function HideOnLoad()
+        function checkLactose()
         {
-            document.getElementById("trlac1").style.display = "none";
-            document.getElementById("trlac2").style.display = "none";
-            document.getElementById("lactose1").checked = false;
-            document.getElementById("lactose2").checked = false;
-        }
+          $lactose1 = document.getElementById("lactose1");
+          $lactose2 = document.getElementById("lactose2");
+          $lactose3 = document.getElementById("lactose3");
+          $lactose4 = document.getElementById("lactose4");
 
-        function LactoseZichtbaar()
-        {
-            document.getElementById("trlac1").style.display = "block";
-            document.getElementById("trlac2").style.display = "block";
+          if(lactose1.checked == true){
+            $lactose3.disabled = false;
+            $lactose4.disabled = false;
+          }
+          else{
+            $lactose3.disabled = true;
+            $lactose3.checked = false;
+            $lactose4.disabled = true;
+            $lactose4.checked = false;
+          }
         }
     </script>
 </html>
