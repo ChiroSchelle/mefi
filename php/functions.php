@@ -14,7 +14,7 @@
 		if($_POST["function"] == "NieuweFiche")
 		{
 			 if (isset($_POST["LactoseX"])){
-				$LactoseX = $_POST["LactoseX"];
+				 $LactoseX = $_POST["LactoseX"];
 			 }
 			 else{
 				$LactoseX = "/";
@@ -281,16 +281,18 @@
 
 		if($link != false)
 		{
-			mysqli_query($link,$sql);
-			$_SESSION["melding"] = "Medische Fiche Succesvol Ingediend!";
+			if (!mysqli_query($link,$sql)) {
+				// printf("Error: %s\n", mysqli_error($link));
+			} else {
+				$_SESSION["melding"] = "Medische Fiche Succesvol Ingediend!";
+				$url = "../mefi/succes/";
+				echo "<meta http-equiv='refresh' content='0;URL=$url' />";
+			}
 		}
 		else
 		{
 			$_SESSION["melding"] = "Er Is Iets Fout Gelopen, Probeer Opnieuw!";
 		}
-
-		$url = "../mefi/succes/";
-		echo "<meta http-equiv='refresh' content='0;URL=$url' />";
 	}
 
 	function IndividueleFiche($id)

@@ -85,7 +85,7 @@
       <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 
-	<body class="no-trans" onload="informatie()">
+	<body class="no-trans">
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
