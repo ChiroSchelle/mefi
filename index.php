@@ -283,7 +283,7 @@
                                       </td>
                                       <!--<td><input type="text" name="ResusFactor" required></td>-->
                                       <td>
-                                        <select name="Bloedgroep" required>
+                                        <select name="ResusFactor" required>
                                           <option value=""></option>
                                           <option value="+">+</option>
                                           <option value="-">-</option>
