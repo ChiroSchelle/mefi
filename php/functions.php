@@ -324,11 +324,11 @@
 							</thead>
 							<tr>
 								<td width="30%">Geboortedatum</td>
-								<td width="70%"><input name="geboortedatum" value="'.$row["Geboortedatum"].'"></td>
+								<td width="70%">'.$row["Geboortedatum"].'</td>
 							</tr>
 							<tr>
 								<td>Adres</td>
-								<td><input name="straat" value='.$row["Straat"].'> <input name="nummer" value='.$row["Nummer"].'> <input name="postcode" value='.$row["Postcode"].'> <input name="woonplaats" value='.$row["Woonplaats"].'></td>
+								<td>'.$row["Straat"]." ".$row["Nummer"].", ".$row["Postcode"]." ".$row["Woonplaats"].'</td>
 							</tr>
 							<tr>
 								<td>Gezinslid 1</td>
