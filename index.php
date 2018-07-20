@@ -270,8 +270,26 @@
                                     <tr>
                                       <td><input type="text" name="NaamHuisarts" required></td>
                                       <td><input type="text" name="TelefoonArts" required></td>
-                                      <td><input type="text" name="Bloedgroep" required></td>
-                                      <td><input type="text" name="ResusFactor" required></td>
+                                      <!--<td><input type="text" name="Bloedgroep" required></td>-->
+                                      <td>
+                                        <select name="Bloedgroep" required>
+                                          <option value=""></option>
+                                          <option value="A">A</option>
+                                          <option value="AB">AB</option>
+                                          <option value="B">B</option>
+                                          <option value="O">O</option>
+                                          <option value="Geen idee">Geen idee</option>
+                                        </select>
+                                      </td>
+                                      <!--<td><input type="text" name="ResusFactor" required></td>-->
+                                      <td>
+                                        <select name="Bloedgroep" required>
+                                          <option value=""></option>
+                                          <option value="+">+</option>
+                                          <option value="-">-</option>
+                                          <option value="Geen idee">Geen idee</option>
+                                        </select>
+                                      </td>
                                     </tr>
                                   </table>
                                 
