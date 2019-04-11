@@ -282,7 +282,7 @@
 		if($link != false)
 		{
 			if (!mysqli_query($link,$sql)) {
-				// printf("Error: %s\n", mysqli_error($link));
+				printf("Error: %s\n", mysqli_error($link)); /////////////////////////////////////////////////////////////////////////////////
 			} else {
 				$_SESSION["melding"] = "Medische Fiche Succesvol Ingediend!";
 				$url = "../mefi/succes/";

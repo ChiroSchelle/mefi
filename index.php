@@ -180,7 +180,7 @@
 								<input name="function" value="NieuweFiche" hidden />
                                   <table class="table">
                                     <tr>
-                                      <td colspan="3"><h3>Kamp 2017 - 2018 - Individuele medische steekkaart</h3></td>
+                                      <td colspan="3"><h3>Kamp 2018 - 2019 - Individuele medische steekkaart</h3></td>
                                     </tr>
                                     <tr>
                                       <td colspan="3">Beste ouders, deze steekkaart moet door u of een arts zorgvuldig worden ingevuld. Aldus kan er rekening worden gehouden met de behoeften en mogelijkheden van uw kind tijdens zijn vakantieverblijf.
