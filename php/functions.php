@@ -19,7 +19,7 @@
 			 else{
 				$LactoseX = "/";
 			 }
-			 NieuweFiche($_POST["Lactose"],$LactoseX,$_POST["ToestemmingFotoS"],$_POST["ToestemmingFoto"],$_POST["Afdeling"],$_POST["Naam"],$_POST["Voornaam"],$_POST["Geboortedatum"],$_POST["Straat"],$_POST["Nummer"],$_POST["Postcode"],$_POST["Woonplaats"],$_POST["Telefoon1"],$_POST["Telefoon2"],$_POST["NaamVoornaam1"],$_POST["NaamVoornaam2"],$_POST["Verwantschap1"],$_POST["Verwantschap2"],$_POST["NaamHuisarts"],$_POST["TelefoonArts"],$_POST["Bloedgroep"],$_POST["ResusFactor"],$_POST["ZiektenLijst"],$_POST["GevoeligStoffenVoeding"],$_POST["Ingrepen"],$_POST["VaccinatieTetanus"],$_POST["SerumTetanus"],$_POST["VaccinatieHersenvliesontsteking"],$_POST["AllergieMedicatie"],$_POST["Vegetarisch"],$_POST["Incontinent"],$_POST["DeelnemenSport"],$_POST["ToestemmingMedicatie"],$_POST["ToestemmingIngrepen"],$_POST["AndereInlichtingen"],$_POST["NaamInvuller"],$_POST["Roken"],$_POST["ToestemmingRoken"],$_POST["MedicatieLijst"]);
+			 NieuweFiche($_POST["Lactose"],$LactoseX,$_POST["ToestemmingFoto"],$_POST["Afdeling"],$_POST["Naam"],$_POST["Voornaam"],$_POST["Geboortedatum"],$_POST["Straat"],$_POST["Nummer"],$_POST["Postcode"],$_POST["Woonplaats"],$_POST["Telefoon1"],$_POST["Telefoon2"],$_POST["NaamVoornaam1"],$_POST["NaamVoornaam2"],$_POST["Verwantschap1"],$_POST["Verwantschap2"],$_POST["NaamHuisarts"],$_POST["TelefoonArts"],$_POST["Bloedgroep"],$_POST["ResusFactor"],$_POST["ZiektenLijst"],$_POST["GevoeligStoffenVoeding"],$_POST["Ingrepen"],$_POST["VaccinatieTetanus"],$_POST["SerumTetanus"],$_POST["VaccinatieHersenvliesontsteking"],$_POST["AllergieMedicatie"],$_POST["Vegetarisch"],$_POST["Incontinent"],$_POST["DeelnemenSport"],$_POST["ToestemmingMedicatie"],$_POST["ToestemmingIngrepen"],$_POST["AndereInlichtingen"],$_POST["NaamInvuller"],$_POST["Roken"],$_POST["ToestemmingRoken"],$_POST["MedicatieLijst"]);
 		}
 	}
 
@@ -127,7 +127,7 @@
 		return $html;
 	}
 
-	function NieuweFiche($Lactose ,$LactoseX , $ToestemmingFotoS ,$ToestemmingFoto, $Afdeling ,$Naam ,$Voornaam ,$Geboortedatum ,$Straat ,$Nummer ,$Postcode ,$Woonplaats ,$Telefoon1 ,$Telefoon2 ,$NaamVoornaam1 ,$NaamVoornaam2 ,$Verwantschap1 ,$Verwantschap2 ,$NaamHuisarts ,$TelefoonArts ,$Bloedgroep ,$ResusFactor ,$ZiektenLijst ,$GevoeligStoffenVoeding ,$Ingrepen ,$VaccinatieTetanus ,$SerumTetanus ,$VaccinatieHersenvliesontsteking ,$AllergieMedicatie ,$Vegetarisch ,$Incontinent ,$DeelnemenSport ,$ToestemmingMedicatie ,$ToestemmingIngrepen ,$AndereInlichtingen ,$NaamInvuller ,$Roken ,$ToestemmingRoken, $MedicatieLijst)
+	function NieuweFiche($Lactose ,$LactoseX, $ToestemmingFoto, $Afdeling ,$Naam ,$Voornaam ,$Geboortedatum ,$Straat ,$Nummer ,$Postcode ,$Woonplaats ,$Telefoon1 ,$Telefoon2 ,$NaamVoornaam1 ,$NaamVoornaam2 ,$Verwantschap1 ,$Verwantschap2 ,$NaamHuisarts ,$TelefoonArts ,$Bloedgroep ,$ResusFactor ,$ZiektenLijst ,$GevoeligStoffenVoeding ,$Ingrepen ,$VaccinatieTetanus ,$SerumTetanus ,$VaccinatieHersenvliesontsteking ,$AllergieMedicatie ,$Vegetarisch ,$Incontinent ,$DeelnemenSport ,$ToestemmingMedicatie ,$ToestemmingIngrepen ,$AndereInlichtingen ,$NaamInvuller ,$Roken ,$ToestemmingRoken, $MedicatieLijst)
 	{
 		$Afdeling = ucwords((strtolower($Afdeling)));
 		$Naam = ucwords((strtolower($Naam)));
@@ -274,8 +274,8 @@
 		$MedicatieLijst = $temp;
 		//Einde MedicatieLijst
 
-		$sql = "INSERT INTO `lid`(`Lactose`, `LactoseX`, `ToestemmingFotoS`, `ToestemmingFoto`,`Afdeling`, `Naam`, `Voornaam`, `Geboortedatum`, `Straat`, `Nummer`, `Postcode`, `Woonplaats`, `Telefoon1`, `Telefoon2`, `NaamVoornaam1`, `NaamVoornaam2`, `Verwantschap1`, `Verwantschap2`, `NaamHuisarts`, `TelefoonArts`, `Bloedgroep`, `ResusFactor`, `ZiekteLijst`, `GevoeligStoffenVoeding`, `Ingrepen`, `VaccinatieTetanus`, `SerumTetanus`, `VaccinatieHersenvliesontsteking`, `AllergieMedicatie`, `Vegetarisch`, `Incontinent`, `DeelnemenSport`, `ToestemmingMedicatie`, `ToestemmingIngrepen`, `AndereInlichtingen`, `NaamInvuller`, `Datum`, `Roken`, `ToestemmingRoken`, `MedicatieLijst`)
-		VALUES ('$Lactose', '$LactoseX', '$ToestemmingFotoS', '$ToestemmingFoto', '$Afdeling', '$Naam', '$Voornaam', '$Geboortedatum', '$Straat', '$Nummer', '$Postcode', '$Woonplaats', '$Telefoon1', '$Telefoon2', '$NaamVoornaam1', '$NaamVoornaam2', '$Verwantschap1', '$Verwantschap2', '$NaamHuisarts', '$TelefoonArts', '$Bloedgroep', '$ResusFactor', '$ZiektenLijst', '$GevoeligStoffenVoeding', '$Ingrepen', '$VaccinatieTetanus', '$SerumTetanus', '$VaccinatieHersenvliesontsteking', '$AllergieMedicatie', '$Vegetarisch', '$Incontinent', '$DeelnemenSport', '$ToestemmingMedicatie', '$ToestemmingIngrepen', '$AndereInlichtingen', '$NaamInvuller', '$Datum', '$Roken', '$ToestemmingRoken', '$MedicatieLijst')";
+		$sql = "INSERT INTO `lid`(`Lactose`, `LactoseX`, `ToestemmingFoto`,`Afdeling`, `Naam`, `Voornaam`, `Geboortedatum`, `Straat`, `Nummer`, `Postcode`, `Woonplaats`, `Telefoon1`, `Telefoon2`, `NaamVoornaam1`, `NaamVoornaam2`, `Verwantschap1`, `Verwantschap2`, `NaamHuisarts`, `TelefoonArts`, `Bloedgroep`, `ResusFactor`, `ZiekteLijst`, `GevoeligStoffenVoeding`, `Ingrepen`, `VaccinatieTetanus`, `SerumTetanus`, `VaccinatieHersenvliesontsteking`, `AllergieMedicatie`, `Vegetarisch`, `Incontinent`, `DeelnemenSport`, `ToestemmingMedicatie`, `ToestemmingIngrepen`, `AndereInlichtingen`, `NaamInvuller`, `Datum`, `Roken`, `ToestemmingRoken`, `MedicatieLijst`)
+		VALUES ('$Lactose', '$LactoseX', '$ToestemmingFoto', '$Afdeling', '$Naam', '$Voornaam', '$Geboortedatum', '$Straat', '$Nummer', '$Postcode', '$Woonplaats', '$Telefoon1', '$Telefoon2', '$NaamVoornaam1', '$NaamVoornaam2', '$Verwantschap1', '$Verwantschap2', '$NaamHuisarts', '$TelefoonArts', '$Bloedgroep', '$ResusFactor', '$ZiektenLijst', '$GevoeligStoffenVoeding', '$Ingrepen', '$VaccinatieTetanus', '$SerumTetanus', '$VaccinatieHersenvliesontsteking', '$AllergieMedicatie', '$Vegetarisch', '$Incontinent', '$DeelnemenSport', '$ToestemmingMedicatie', '$ToestemmingIngrepen', '$AndereInlichtingen', '$NaamInvuller', '$Datum', '$Roken', '$ToestemmingRoken', '$MedicatieLijst')";
 
 		$link = LinkDB();
 
@@ -401,10 +401,6 @@
 							<tr>
 								<td>Toestemming fotos</td>
 								<td>'.$row["ToestemmingFoto"].'</td>
-							</tr>
-							<tr>
-								<td>Toestemming foto in stickerboek</td>
-								<td>'.$row["ToestemmingFotoS"].'</td>
 							</tr>
 							<tr>
 								<td>Medicatielijst</td>

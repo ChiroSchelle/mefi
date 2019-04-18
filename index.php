@@ -498,11 +498,6 @@
                                       <td><input type="radio" group="ToestemmingFoto" name="ToestemmingFoto" value="Nee"></td>
                                     </tr>
                                     </tr>
-									                  <tr>
-                                      <td>Wij geven toestemming aan de leiding om ons kind te laten fotograferen en te publiceren in het stickerboek van Chiro Schelle in samenwerking met AD Delhaize Schelle.<span class="required">*</span></td>
-                                      <td><input type="radio" group="ToestemmingFotoS" name="ToestemmingFotoS" value="Ja" required></td>
-                                      <td><input type="radio" group="ToestemmingFotoS" name="ToestemmingFotoS" value="Nee"></td>
-                                    </tr>
                                     <tr><td colspan="3"><hr></td></tr>
                                     <tr><td colspan="3"><h6>Andere inlichtingen</h6></td></tr>
                                     <tr>
